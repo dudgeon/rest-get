@@ -20,19 +20,24 @@ class ViewController: UIViewController {
     /// Outlets
     @IBOutlet weak var restURI: UITextField!
     @IBOutlet weak var restMessage: UITextView!
+    @IBOutlet weak var restGetButton: UIButton!
     
     
     /// Actions
     @IBAction func restGet(sender: AnyObject) {
         
-        // Dismiss keyboard
-        restURI.resignFirstResponder()
+        restURI.resignFirstResponder() // Dismiss keyboard
+        restGetButton.enabled = false
         
         // Let's make a request!
-        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+        Alamofire.request(.GET, restURI.text!)
             .response { request, response, data, error in
+
+                self.restGetButton.enabled = true // re-enable button
+                
                 print(request)
                 print(response)
+                self.restMessage.text = data?.description
                 print(error)
         }
         
