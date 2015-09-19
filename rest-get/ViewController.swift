@@ -9,11 +9,20 @@
 import UIKit
 import Alamofire // Alamofire cocoapod simplifies working with APIs: https://github.com/Alamofire/Alamofire
 
-/// Note: To work with non-secure (http vs. https) APIs, must edit Info.plist: http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
-/// add dictionary: NSAppTransportSecurity
-/// add key: NSAllowsArbitraryLoads (boolean)
-/// set to: true
+/*
+Note: To work with non-secure (http vs. https) APIs, must edit Info.plist: http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
+ - add dictionary: NSAppTransportSecurity
+ - add key: NSAllowsArbitraryLoads (boolean)
+ - set to: true
+*/
 
+
+/*
+REST API tests:
+ - http://jsonplaceholder.typicode.com (e.g. /users, /posts, /comments)
+ - http://httpbin.org/get
+ - http://www.justinscarpetti.com/projects/amazon-wish-lister/api/?id=1VKBITQG1TW7O
+*/
 
 class ViewController: UIViewController {
     
@@ -27,30 +36,32 @@ class ViewController: UIViewController {
     @IBAction func restGet(sender: AnyObject) {
         
         restURI.resignFirstResponder() // Dismiss keyboard
-        restGetButton.enabled = false
+        restGetButton.enabled = false // Disable button
         
-        // Let's make a request!
+        
         Alamofire.request(.GET, restURI.text!)
-            .response { request, response, data, error in
-
+            .responseJSON { _, _, result in
+                
                 self.restGetButton.enabled = true // re-enable button
                 
-                print(request)
-                print(response)
-                self.restMessage.text = data?.description
-                print(error)
+                // print(result)
+                // debugPrint(result)
+                
+                switch result {
+                case .Success(let JSON):
+                    print("Success: \(JSON)")
+                    self.restMessage.text = String(JSON)
+                    
+                case .Failure( _, let error):
+                    print("Failure: \(error)")
+                    self.restMessage.text = String(error)
+                }
         }
         
         
-        /// test basic functionality
-        // restMessage.text = restURI.text
-        
-        
-        
-        
 
         
-    }
+    } // end restGet()
 
     
     /// [_] Map return key to restGet()
