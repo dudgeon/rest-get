@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import Alamofire // Alamofire cocoapod simplifies working with APIs: https://github.com/Alamofire/Alamofire
+
+/// Note: To work with non-secure (http vs. https) APIs, must edit Info.plist: http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http
+/// add dictionary: NSAppTransportSecurity
+/// add key: NSAllowsArbitraryLoads (boolean)
+/// set to: true
+
 
 class ViewController: UIViewController {
     
@@ -21,8 +28,17 @@ class ViewController: UIViewController {
         // Dismiss keyboard
         restURI.resignFirstResponder()
         
+        // Let's make a request!
+        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+            .response { request, response, data, error in
+                print(request)
+                print(response)
+                print(error)
+        }
+        
+        
         /// test basic functionality
-        restMessage.text = restURI.text
+        // restMessage.text = restURI.text
         
         
         
