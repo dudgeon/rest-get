@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     /// Actions
     @IBAction func restGet(sender: AnyObject) {
         
-        restURI.resignFirstResponder() // Dismiss keyboard
-        restGetButton.enabled = false // Disable button
+        restURI.resignFirstResponder() // dismiss keyboard
+        restGetButton.enabled = false // disable button
         
         
         Alamofire.request(.GET, restURI.text!)

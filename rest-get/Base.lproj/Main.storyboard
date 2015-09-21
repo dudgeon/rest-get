@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,47 +19,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://jsonplaceholder.typicode.com/users" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cR-sp-vbc">
-                                <rect key="frame" x="20" y="57" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://jsonplaceholder.typicode.com/users" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="9cR-sp-vbc">
+                                <rect key="frame" x="60" y="28" width="482" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-hj-aCz">
+                                <rect key="frame" x="20" y="71" width="560" height="509"/>
+                                <color key="backgroundColor" red="0.97837752525252519" green="0.97837752525252519" blue="0.97837752525252519" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="10"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URI:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTb-Qj-keN">
+                                <rect key="frame" x="20" y="32" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjC-wU-1Ha">
-                                <rect key="frame" x="285" y="95" width="30" height="30"/>
+                                <rect key="frame" x="550" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="5Uj-3f-JC5"/>
+                                </constraints>
                                 <state key="normal" title="GET"/>
                                 <connections>
                                     <action selector="restGet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6k6-Xb-61b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REST GET URI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifm-HY-kPe">
-                                <rect key="frame" x="245" y="28" width="110" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="G6s-KB-I1q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MjA-hj-aCz">
-                                <rect key="frame" x="20" y="133" width="560" height="447"/>
-                                <color key="backgroundColor" red="0.97837752525252519" green="0.97837752525252519" blue="0.97837752525252519" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9cR-sp-vbc" firstAttribute="centerX" secondItem="Ifm-HY-kPe" secondAttribute="centerX" id="7Jp-XJ-Zj7"/>
-                            <constraint firstItem="Ifm-HY-kPe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="AWM-28-rg7"/>
-                            <constraint firstItem="9cR-sp-vbc" firstAttribute="top" secondItem="Ifm-HY-kPe" secondAttribute="bottom" constant="8" symbolic="YES" id="CFN-ql-qUt"/>
-                            <constraint firstItem="MjA-hj-aCz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FiM-CC-WhF"/>
-                            <constraint firstItem="9cR-sp-vbc" firstAttribute="trailing" secondItem="MjA-hj-aCz" secondAttribute="trailing" id="GAG-j4-8fz"/>
-                            <constraint firstItem="MjA-hj-aCz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Zpm-KX-boF"/>
-                            <constraint firstItem="EjC-wU-1Ha" firstAttribute="top" secondItem="9cR-sp-vbc" secondAttribute="bottom" constant="8" symbolic="YES" id="bSX-WN-xJR"/>
-                            <constraint firstItem="MjA-hj-aCz" firstAttribute="leading" secondItem="9cR-sp-vbc" secondAttribute="leading" id="dQb-m7-FrI"/>
-                            <constraint firstAttribute="bottom" secondItem="MjA-hj-aCz" secondAttribute="bottom" constant="20" symbolic="YES" id="p0R-lQ-YNM"/>
-                            <constraint firstItem="9cR-sp-vbc" firstAttribute="centerX" secondItem="EjC-wU-1Ha" secondAttribute="centerX" id="toZ-fY-xtk"/>
-                            <constraint firstItem="MjA-hj-aCz" firstAttribute="top" secondItem="EjC-wU-1Ha" secondAttribute="bottom" constant="8" symbolic="YES" id="ze5-Pw-7o7"/>
+                            <constraint firstAttribute="bottom" secondItem="MjA-hj-aCz" secondAttribute="bottom" constant="20" symbolic="YES" id="5bI-lJ-ae5"/>
+                            <constraint firstItem="MjA-hj-aCz" firstAttribute="trailing" secondItem="EjC-wU-1Ha" secondAttribute="trailing" id="91A-Td-iAR"/>
+                            <constraint firstItem="MTb-Qj-keN" firstAttribute="baseline" secondItem="EjC-wU-1Ha" secondAttribute="baseline" id="M4F-uc-24o"/>
+                            <constraint firstItem="9cR-sp-vbc" firstAttribute="bottom" secondItem="EjC-wU-1Ha" secondAttribute="bottom" id="RTB-7Y-uzJ"/>
+                            <constraint firstItem="9cR-sp-vbc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="UOg-8r-IYq"/>
+                            <constraint firstItem="EjC-wU-1Ha" firstAttribute="top" secondItem="9cR-sp-vbc" secondAttribute="top" id="W9f-dh-VU0"/>
+                            <constraint firstItem="MTb-Qj-keN" firstAttribute="baseline" secondItem="EjC-wU-1Ha" secondAttribute="firstBaseline" id="Z76-o0-SrF"/>
+                            <constraint firstItem="9cR-sp-vbc" firstAttribute="leading" secondItem="MTb-Qj-keN" secondAttribute="trailing" constant="8" symbolic="YES" id="ZPD-o2-Std"/>
+                            <constraint firstItem="MjA-hj-aCz" firstAttribute="top" secondItem="9cR-sp-vbc" secondAttribute="bottom" constant="13" id="cNP-Ym-ECV"/>
+                            <constraint firstItem="MTb-Qj-keN" firstAttribute="leading" secondItem="MjA-hj-aCz" secondAttribute="leading" id="dSV-EJ-7oA"/>
+                            <constraint firstItem="MTb-Qj-keN" firstAttribute="centerY" secondItem="9cR-sp-vbc" secondAttribute="centerY" id="eIr-X0-vKr"/>
+                            <constraint firstItem="MTb-Qj-keN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gIJ-fa-sJl"/>
+                            <constraint firstItem="EjC-wU-1Ha" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pHg-Pk-TKV"/>
+                            <constraint firstItem="EjC-wU-1Ha" firstAttribute="leading" secondItem="9cR-sp-vbc" secondAttribute="trailing" constant="8" symbolic="YES" id="y9F-hG-WGi"/>
                         </constraints>
                     </view>
                     <connections>
