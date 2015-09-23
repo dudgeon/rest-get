@@ -219,6 +219,7 @@
 				TargetAttributes = {
 					6CBBB4D61BAD6C5200200BFC = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = R39EF29X3Y;
 					};
 					6CBBB4EA1BAD6C5200200BFC = {
 						CreatedOnToolsVersion = 7.0;
@@ -472,10 +473,13 @@
 			baseConfigurationReference = EA579AB6E2D9B3F16399E652 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "rest-get/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "is.geoff.rest-get";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -484,10 +488,13 @@
 			baseConfigurationReference = 446DCF22EF1619AA39713421 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "rest-get/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "is.geoff.rest-get";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

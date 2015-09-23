@@ -19,7 +19,7 @@ Note: To work with non-secure (http vs. https) APIs, must edit Info.plist: http:
 
 /*
 REST API tests:
- - http://jsonplaceholder.typicode.com (e.g. /users, /posts, /comments)
+ - http://jsonplaceholder.typicode.com/users (e.g. /users, /posts, /comments)
  - http://httpbin.org/get
  - http://www.justinscarpetti.com/projects/amazon-wish-lister/api/?id=1VKBITQG1TW7O
 */
@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         
         restURI.resignFirstResponder() // dismiss keyboard
         restGetButton.enabled = false // disable button
-        
         
         Alamofire.request(.GET, restURI.text!)
             .responseJSON { _, _, result in
@@ -57,12 +56,19 @@ class ViewController: UIViewController {
                     self.restMessage.text = String(error)
                 }
         }
-        
-        
-
-        
     } // end restGet()
+    
+    @IBAction func exampleUri1(sender: AnyObject) {
+        restURI.text = "http://jsonplaceholder.typicode.com/users"
+    }
+    
+    @IBAction func exampleUri2(sender: AnyObject) {
+        restURI.text = "http://httpbin.org/get"
+    }
 
+    @IBAction func exampleUri3(sender: AnyObject) {
+        restURI.text = "http://www.justinscarpetti.com/projects/amazon-wish-lister/api/?id=1VKBITQG1TW7O"
+    }
     
     /// [_] Map return key to restGet()
     
