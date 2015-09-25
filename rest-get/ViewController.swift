@@ -61,6 +61,7 @@ class ViewController: UIViewController {
     
     
     // Link Buttons for Sample REST endpoints
+    // [_] Refactor as collectionView, iterating over array of tuples of example links? Or showing one at random with refresh button?
     
     @IBAction func exampleUri1(sender: AnyObject) {
         restURI.text = "http://jsonplaceholder.typicode.com/users"
