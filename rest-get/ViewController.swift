@@ -58,6 +58,10 @@ class ViewController: UIViewController {
         }
     } // end restGet()
     
+    
+    
+    // Link Buttons for Sample REST endpoints
+    
     @IBAction func exampleUri1(sender: AnyObject) {
         restURI.text = "http://jsonplaceholder.typicode.com/users"
     }
@@ -70,6 +74,10 @@ class ViewController: UIViewController {
         restURI.text = "http://www.justinscarpetti.com/projects/amazon-wish-lister/api/?id=1VKBITQG1TW7O"
     }
     
+
+    
+    
+    
     /// [_] Map return key to restGet()
     
     
@@ -80,7 +88,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // load URL from clipboard
+        if let clipboardText = UIPasteboard.generalPasteboard().string {
+            if clipboardText.hasPrefix("http") {
+                restURI.text = clipboardText
+            }
+        }
+    
+        
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
